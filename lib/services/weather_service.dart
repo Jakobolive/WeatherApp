@@ -3,14 +3,14 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:http/http.dart' as http;
 import '../models/weather_response.dart';
+import '../config/secrets.dart';
 
 class WeatherService {
   // Defining the base URL as well as the API key for the OpenWeatherMap API, as it seemed
   // more efficient to do it here rather than in the page.
   static const String BASE_URL =
       'https://api.openweathermap.org/data/3.0/onecall';
-  // static const String API_KEY = '6c287a0a60da34f0725f72b519b8d94e';
-  static const String API_KEY = '4168288c13185cb76e99e82b0a5b72e7';
+  static const String API_KEY = Secrets.apiKey;
 
   /// Fetch weather data using latitude and longitude.
   Future<WeatherResponse> getWeather(double lat, double lon) async {
